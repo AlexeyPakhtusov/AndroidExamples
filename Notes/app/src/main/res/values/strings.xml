@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="title_hint">Title</string>
+    <string name="description_hint">Description</string>
+    <string name="notes_error">Error while getting notes</string>
+    <string name="note_error">Title or description can not be empty</string>
+    <string name="note_save_successful">Note has benn successfully saved</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Picture Of Day</string>
+    <string name="pictures_list">Pictures</string>
+    <string name="age_format">Age: %d</string>
+    <string name="for_adults">Adult text</string>
+    <string name="weather_error">Error occurred while loading :(\n\nCheck your network and click to retry</string>
+</resources>

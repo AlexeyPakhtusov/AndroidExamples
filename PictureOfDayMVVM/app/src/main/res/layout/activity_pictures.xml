@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="ru.gdgkazan.pictureofdaymvvm.screen.pictures.PicturesViewModel"/>
+
+        <import type="android.view.View"/>
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".screen.pictures.PicturesActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title="@string/pictures_list"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="?attr/actionBarSize">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:adapter="@{model.adapter}"
+                app:items="@{model.pictures}"
+                app:layoutManager="@{model.layoutManager}"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:onScrollListener="@{model.scrollListener}"
+                app:onItemClick="@{model::onItemClick}"/>
+
+            <ProgressBar
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
+                android:layout_gravity="center_horizontal"
+                android:visibility="@{!model.loading ? View.GONE : model.error ? View.GONE : View.VISIBLE}"/>
+
+            <TextView
+                android:id="@+id/error_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/weather_error"
+                android:textColor="@color/gray_880b1f35"
+                android:textSize="@dimen/text.18"
+                android:visibility="@{model.error ? View.VISIBLE : View.GONE}"
+                android:onClick="@{() -> model.init()}"/>
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

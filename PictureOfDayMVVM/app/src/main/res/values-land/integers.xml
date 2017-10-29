@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="columns_count">3</integer>
+    <item name="rows_count" type="dimen" format="float">1</item>
+    <integer name="bulk_load">3</integer>
+</resources>

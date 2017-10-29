@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="movies_request_id" type="id"/>
+    <item name="movie_details_trailers_request_id" type="id"/>
+    <item name="movie_details_reviews_request_id" type="id"/>
+</resources>
